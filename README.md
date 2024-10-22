@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# プロジェクト概要
 
-## Getting Started
+このプロジェクトは、ユーザーが画像をテキストに変換したり、テキストから画像を生成したりすることができるNext.jsアプリケーションです。OpenAIのAPIを利用して、画像認識と画像生成の機能を提供します。
 
-First, run the development server:
+## 主な機能
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **画像からテキストへの変換**: ユーザーがカメラで撮影した画像やアップロードした画像をテキストに変換します。
+- **テキストから画像への生成**: ユーザーが入力したテキストプロンプトに基づいて画像を生成します。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 必要条件
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js
+- npm または yarn
+- OpenAI APIキー
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## インストールとセットアップ
 
-## Learn More
+1. **リポジトリをクローン**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone <リポジトリのURL>
+   cd <プロジェクトディレクトリ>
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **依存関係をインストール**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   # または
+   yarn install
+   ```
 
-## Deploy on Vercel
+3. **環境変数の設定**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   プロジェクトルートに `.env.local` ファイルを作成し、OpenAI APIキーを設定します。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+4. **開発サーバーを起動**
+
+   ```bash
+   npm run dev
+   # または
+   yarn dev
+   ```
+
+   ブラウザで [http://localhost:3000](http://localhost:3000) を開いてアプリケーションを確認します。
+
+## プロジェクト構成
+
+- `src/app/image-to-text/page.tsx`: 画像をテキストに変換するページ
+- `src/app/text-to-image/page.tsx`: テキストから画像を生成するページ
+- `src/app/api/image-to-text/route.ts`: 画像をテキストに変換するAPIエンドポイント
+- `src/app/api/text-to-image/route.ts`: テキストから画像を生成するAPIエンドポイント
+
+## 注意事項
+
+- OpenAI APIキーが必要です。`.env.local` ファイルにキーを設定してください。
+- 開発環境での動作を確認するために、`npm run dev` または `yarn dev` を使用してください。
+
+## デプロイ
+
+このアプリケーションは、Vercelプラットフォームを使用して簡単にデプロイできます。詳細は、[Next.jsのデプロイに関するドキュメント](https://nextjs.org/docs/app/building-your-application/deploying)を参照してください。
+
+## ライセンス
+
+このプロジェクトはMITライセンスの下で提供されています。
